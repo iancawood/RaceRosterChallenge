@@ -28,17 +28,14 @@ try {
         new DateTime('2014-05-06')
     );
 
-    // @todo Calculate the age the Interviewee when they started working using the provided methods
-    // Replace 0 with the calculated answer
-echo sprintf('%s started working when they were %s years old', $interview->getName(), 0) . PHP_EOL;
+echo sprintf('%s started working when they were %s years old', $interview->getName(),
+        $interview->getAge() - ceil($interview->getYearsOfExperience())) . PHP_EOL; // Assuming the have worked constantly with no breaks
 
-// @todo echo the interview date in the format "January 1, 2000" using the provided methods
-echo sprintf('Today is %s', '') . PHP_EOL;
+echo sprintf('Today is %s', $interview->getDate()->format('F j, Y')) . PHP_EOL;
 
-// @todo echo the Time Zone abbreviation of the current time using the provided methods (eg MST, CST, EST)
-echo sprintf('The current time zone is %s', '') . PHP_EOL;
+echo sprintf('The current time zone is %s', $interview->getDate()->format('T')) . PHP_EOL;
 
-	$ageCheck = 21;
+$ageCheck = 21;
 if($ageCheck = $interview->getAge()) {
 	   echo sprintf('The interviewee is %d years old!', $ageCheck) . PHP_EOL;
 }
@@ -49,13 +46,13 @@ if($ageCheck = $interview->getAge()) {
 
 
 // @todo Calculate and display the processing fee and the net order total when the fee is absorbed in the price.
-$total 			= 456.78; // Gross
-$processingFeePercentage	= 0.05;
-$processingFeeFixed    = 0.10; // Always added on to the processing fee
+$total 			         = 456.78; // Gross
+$processingFeePercentage = 0.05;
+$processingFeeFixed      = 0.10; // Always added on to the processing fee
 
 // Calculate the following
 $processingFee = 0;
-$netTotal  = 0;
+$netTotal      = 0;
 
 echo 'Processing Fee: $' . $processingFee . PHP_EOL;
 echo 'Net Total: $' . $netTotal . PHP_EOL;
@@ -63,7 +60,7 @@ echo 'Net Total: $' . $netTotal . PHP_EOL;
 // @todo Recalculate and display the net total after we charge 13% HST on the processing fee
 // Calculate the following based on the values above
 $taxes    = 0;
-$netTotal	= 0;
+$netTotal = 0;
 
 echo 'Net Total with taxes: ' . $netTotal . PHP_EOL;
 
