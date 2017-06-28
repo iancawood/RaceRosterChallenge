@@ -62,7 +62,7 @@ class Interview
     }
 
     /**
-     * @todo Complete this comment
+     * @return \DateTime
      */
     public function getDate()
     {

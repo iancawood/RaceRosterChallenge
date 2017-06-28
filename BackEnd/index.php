@@ -3,6 +3,9 @@
  * RaceRoster interview questions
  * Created: 2014-05-02
  *
+ * Completed By: Ian Wood
+ * Date: 2017-06-29
+ *
  * @todo Complete all the todo item's and fix any bugs along the way
  */
 
@@ -17,9 +20,10 @@ require __DIR__ . '/src/InterviewException.php';
 try {
 	$interview = new Interview(
         array(
-            'name'    => 'Mike',
-            'age'               => 29
-            'yearsOfExperience' => 9.25
+            'name'              => 'Mike',
+            'age'               => 29,
+            'yearsOfExperience' => 9.25,
+            'nickname'          => 'Mikey'
         ),
         new DateTime('2014-05-06')
     );
@@ -79,7 +83,7 @@ $qry = "SELECT
     WHERE a.cid IN (
         SELECT cid FROM RR_CHARITY_TRANSACTIONS WHERE `trnDate` <= '2013-01-01 00:00:00'
     )
-    AND a.eid NOT IN(216,217,322)");
+    AND a.eid NOT IN(216,217,322)";
 
 /**
  * @todo Answer: Why is this slow in the first place?
