@@ -29,14 +29,14 @@ try {
     );
 
 echo sprintf('%s started working when they were %s years old', $interview->getName(),
-        $interview->getAge() - ceil($interview->getYearsOfExperience())) . PHP_EOL; // Assuming the have worked constantly with no breaks
+        $interview->getAge() - ceil($interview->getYearsOfExperience())) . PHP_EOL; // @assumption: Assuming the have worked constantly with no breaks
 
 echo sprintf('Today is %s', $interview->getDate()->format('F j, Y')) . PHP_EOL;
 
 echo sprintf('The current time zone is %s', $interview->getDate()->format('T')) . PHP_EOL;
 
 $ageCheck = 21;
-if($ageCheck = $interview->getAge()) {
+if($ageCheck >= $interview->getAge()) { // @assumption: This part was a little unclear, but '>=' seems more logically than '='.
 	   echo sprintf('The interviewee is %d years old!', $ageCheck) . PHP_EOL;
 }
 
@@ -45,28 +45,29 @@ if($ageCheck = $interview->getAge()) {
 }
 
 
-// @todo Calculate and display the processing fee and the net order total when the fee is absorbed in the price.
 $total 			         = 456.78; // Gross
 $processingFeePercentage = 0.05;
-$processingFeeFixed      = 0.10; // Always added on to the processing fee
+$processingFeeFixed      = 0.10; // Always added on to the processing fee // @assumption: Im treating this as $0.10.
 
 // Calculate the following
-$processingFee = 0;
-$netTotal      = 0;
+$processingFee = floor(($total - $processingFeeFixed) * $processingFeePercentage * 100) / 100 + $processingFeeFixed; // @assumption: Rounds down to nearest cent
+$netTotal      = $total - $processingFee;
 
 echo 'Processing Fee: $' . $processingFee . PHP_EOL;
 echo 'Net Total: $' . $netTotal . PHP_EOL;
 
-// @todo Recalculate and display the net total after we charge 13% HST on the processing fee
 // Calculate the following based on the values above
-$taxes    = 0;
-$netTotal = 0;
+$taxPercentage = 0.13;
+
+$taxes    = floor($processingFee * $taxPercentage * 100) / 100;
+$netTotal = $netTotal - $taxes;
 
 echo 'Net Total with taxes: ' . $netTotal . PHP_EOL;
 
 /**
  * @todo Answer: What issues could you see happen when dealing with currency?
- *
+ *  - Different currencies have exchange rates that are constantly changing and therefore the data needs to be gathered live from a trusted source.
+ *  - Math errors in programming mean customers are either being overcharged (making unhappy customers) or uncharged (RaceRoster loses money).
  */
 
 
