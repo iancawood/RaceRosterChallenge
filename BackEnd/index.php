@@ -68,10 +68,12 @@ echo 'Net Total with taxes: ' . $netTotal . PHP_EOL;
  * @todo Answer: What issues could you see happen when dealing with currency?
  *  - Different currencies have exchange rates that are constantly changing and therefore the data needs to be gathered live from a trusted source.
  *  - Math errors in programming mean customers are either being overcharged (making unhappy customers) or uncharged (RaceRoster loses money).
+ *  - Deciding on a method for how rounding currency is completed and then ensuring that same method is used universally.
+ *  - Currency or money values shouldn't be stored as floats in a database due to the limited precision of floats.
  */
 
 
-// @todo Optimize the following query
+// Original
 $qry = "SELECT
         a.eid,
         a.cid,
@@ -83,7 +85,19 @@ $qry = "SELECT
     )
     AND a.eid NOT IN(216,217,322)";
 
+// Mine
+$optimizedQry = "SELECT
+        a.eid,
+        a.cid,
+        b.e_date
+    FROM RR_CHARITY a
+    JOIN RR_EVENTS b ON a.eid = b.eid
+    JOIN RR_CHARITY_TRANSACTIONS c ON a.cid = c.cid
+    WHERE c.trnDate <= '2013-01-01 00:00:00'
+    AND a.eid NOT IN(216,217,322)";
+
 /**
  * @todo Answer: Why is this slow in the first place?
- *
+ *  The query is slow due to the fact that the subquery is being executed every time it is being evaluated.
+ *  I am assuming that the RR_CHARITY_TRANSACTIONS table is quite large, so repeatedly querying it would be time consuming.
  */
