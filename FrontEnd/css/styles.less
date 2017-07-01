@@ -36,6 +36,14 @@ body {
 	font-size: 45px;
 	text-transform: uppercase;	
 	text-align: center;
+
+	a,
+	a:hover,
+	a:focus,
+	a:visited {
+		color: @color-white;
+		text-decoration: none;
+	}
 }
 
 .page {
@@ -47,10 +55,39 @@ body {
 	}
 }
 
+.box {	
+	border: solid 2px #58668b;
+	padding: 25px;
+}
+
+.menu {
+	margin-bottom: 0;
+}
+
+.menu-item {
+	margin-bottom: 15px;
+	font-size: 24px;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.nav-link {
+	color: @color-font;
+	font-weight: bold;
+
+	&:active,
+	&:hover {
+		color: @color-font;
+	}
+}
+
 .page-title {
 	margin-top: 0;
 	margin-bottom: 30px;	
     font-weight: bold;
+    font-size: 35px;
 }
 
 .btn-submit {
