@@ -100,13 +100,38 @@ body {
 }
 
 .created-by {
-	margin-bottom: 0;
+	font-size: 16px;
 }
 
-.footer-right {
-	.icon-link {
+.list-title {
+	margin-top: 0;
+}
+
+.footer-link {
+	margin-bottom: 3px;
+
+	&:last-of-type {
+		margin-bottom: 0px;
+	}
+
+	a,
+	a:hover,
+	a:focus,
+	a:visited {
 		color: @color-white;
-		font-size: 32px;
+	} 
+}
+
+.icon-link {
+	margin-right: 10px;
+	color: @color-white;
+	font-size: 32px;
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+	&:hover {
+		text-decoration: none;
 	}
 }
-

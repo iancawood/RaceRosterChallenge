@@ -67,9 +67,31 @@ body {
   text-align: center;
 }
 .created-by {
-  margin-bottom: 0;
+  font-size: 16px;
 }
-.footer-right .icon-link {
+.list-title {
+  margin-top: 0;
+}
+.footer-link {
+  margin-bottom: 3px;
+}
+.footer-link:last-of-type {
+  margin-bottom: 0px;
+}
+.footer-link a,
+.footer-link a:hover,
+.footer-link a:focus,
+.footer-link a:visited {
+  color: #ffffff;
+}
+.icon-link {
+  margin-right: 10px;
   color: #ffffff;
   font-size: 32px;
+}
+.icon-link:last-of-type {
+  margin-right: 0;
+}
+.icon-link:hover {
+  text-decoration: none;
 }
