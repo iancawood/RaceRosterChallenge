@@ -59,6 +59,12 @@ body {
   font-weight: bold;
   font-size: 35px;
 }
+@media (min-width: 320px) and (max-width: 991px) {
+  .page-content {
+    margin-top: 30px;
+    padding-bottom: 60px;
+  }
+}
 .btn-submit {
   float: right;
   font-weight: bold;
@@ -94,4 +100,10 @@ body {
 }
 .icon-link:hover {
   text-decoration: none;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .footer-left,
+  .footer-mid {
+    margin-bottom: 20px;
+  }
 }
