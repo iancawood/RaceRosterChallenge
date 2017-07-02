@@ -65,12 +65,14 @@
 					</h2>
 					<form id="create-account-form" action="/create-account.php">
 						<div class="form-group">
-							<label class="control-label" for="name">Name</label>
+							<label class="control-label" for="name">Name (Required)</label>
 							<input type="text" class="form-control required-field" id="name" placeholder="Name">
+							<p class="message hide">Field required.</p>
 						</div>
 						<div class="form-group">
-							<label class="control-label" for="email">Email</label>
+							<label class="control-label" for="email">Email (Required)</label>
 							<input type="email" class="form-control required-field" id="email" placeholder="Email">
+							<p class="message hide">Field required.</p>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="address">Address</label>
@@ -95,6 +97,7 @@
 						<div class="form-group hide">
 							<label class="control-label" for="postal">Postal Code</label>
 							<input type="text" class="form-control" id="postal" placeholder="Postal Code">
+							<p class="message hide">Invalid postal code.</p>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="telephone">Telephone</label>

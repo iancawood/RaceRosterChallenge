@@ -1,4 +1,4 @@
-// Source of country and states date: http://www.cssscript.com/generic-country-state-dropdown-list-countries-js/
+// Source of country and states data: http://www.cssscript.com/generic-country-state-dropdown-list-countries-js/
 
 $(document).ready(function() {
 	populateCountries("country", "prov");
@@ -10,8 +10,10 @@ $(document).ready(function() {
 			if ($(this).val().length == 0) {
 				error = true;
 				$(this).parent().addClass("has-error");
+				$(this).next().removeClass("hide");
 			} else {
 				$(this).parent().removeClass("has-error");
+				$(this).next().addClass("hide");
 			}
 		});
 
@@ -24,12 +26,14 @@ $(document).ready(function() {
 		if ($("#country :selected").val() === "Canada") {
 			var reg = /[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]/;
 			var postal = $("#postal");
-			
+
 			if (reg.test(postal.val().toUpperCase())) {				
 				postal.parent().removeClass("has-error");
+				postal.next().addClass("hide");
 			} else {
 				error = true;								
 				postal.parent().addClass("has-error");
+				postal.next().removeClass("hide");
 			}
 		}
 
