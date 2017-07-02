@@ -6,6 +6,16 @@ $(document).ready(function() {
 	$("#create-account-form").submit(function(e){
 		e.preventDefault();
 
+		// validate POSTAL CODE
+
 		// AJAX
+	});
+
+	$("#country").change(function() {
+		if ($("#country :selected").val() === "Canada") {
+			$("#postal").parent().removeClass("hide");
+		} else {			
+			$("#postal").parent().addClass("hide");
+		}
 	});
 });
